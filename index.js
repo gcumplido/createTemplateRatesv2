@@ -6,8 +6,14 @@ rateDate.valueAsDate = new Date()
 const selectInput = document.querySelector('#rate_rate')
 const from1 = document.querySelector('#from1')
 const to1 = document.querySelector('#to1')
+const divRate2 = document.querySelector('.rowRate2')
 selectInput.addEventListener('change',(evt)=>{
     const rateFile = selectInput.value
+    if (['ARSA','ARSB','CLF','COP','MXN','NGN','PENA','PENB','VND'].includes(rateFile)){
+        divRate2.style.display = 'none'
+    }else if (['BRL','IDR','MAD'].includes(rateFile)){
+        divRate2.style.display = 'grid'
+    }
     if (rateFile === 'ARSA' || rateFile === 'ARSB'){
         from1.innerHTML = 'USD'
         to1.innerHTML = 'ARS'
