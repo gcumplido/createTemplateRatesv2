@@ -17,7 +17,22 @@
     <form action="/submitRate" method="post">
         <div class="rowElement">
             <label for="rate_rate">Exchange Rate</label>
-            <input type="text" id="rate_rate" value="LOC_MXN">
+            <select name="" id="rate_rate">
+                <option value="ARSA">LOC_ARS_ASK (Compra)</option>
+                <option value="ARSB">LOC_ARS_BID (Venta)</option>
+                <option value="BRL">LOC_BRL_MEC</option>
+                <option value="CLF">LOC_CLF</option>
+                <option value="COP">LOC_COP</option>
+                <option value="IDR">LOC_IDR</option>
+                <option value="KRW">LOC_KRW</option>
+                <option value="MAD">LOC_MAD</option>
+                <option value="MXN">LOC_MXN</option>
+                <option value="MYR">LOC_MYR</option>
+                <option value="NGN">LOC_NGN</option>
+                <option value="PENA">LOC_PEN_ASK (Compra)</option>
+                <option value="PENB">LOC_PEN_BID (Venta)</option>
+                <option value="VND">LOC_VND_MEC</option>
+            </select>
         </div>
         <div class="rowElement">
             <label for="rate_date">Exchange Rate Date</label>
@@ -30,8 +45,8 @@
                 <span>Value</span>
             </div>
             <div class="rowRate">
-                <span>USD</span>
-                <span>MXN</span>
+                <span id="from1">USD</span>
+                <span id="to1">ARS</span>
                 <input type="number" STEP="0.0001" id="rate1">
             </div>
         </div>
