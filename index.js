@@ -14,35 +14,39 @@ selectInput.addEventListener('change',(evt)=>{
     }else if (['BRL','IDR','MAD'].includes(rateFile)){
         divRate2.style.display = 'grid'
     }
-    if (rateFile === 'ARSA' || rateFile === 'ARSB'){
-        from1.innerHTML = 'USD'
-        to1.innerHTML = 'ARS'
-    }
-    if (rateFile === 'CLF'){
-        from1.innerHTML = 'CLF'
-        to1.innerHTML = 'CLP'
-    }
-    if (rateFile === 'COP'){
-        from1.innerHTML = 'USD'
-        to1.innerHTML = 'COP'
-    }
-    if (rateFile === 'MXN'){
-        from1.innerHTML = 'USD'
-        to1.innerHTML = 'MXN'
-    }
-    if (rateFile === 'NGN'){
-        from1.innerHTML = 'USD'
-        to1.innerHTML = 'NGN'
-    }
-    if (rateFile === 'PENA' || rateFile === 'PENB'){
-        from1.innerHTML = 'USD'
-        to1.innerHTML = 'PEN'
-    }
-    if (rateFile === 'VND'){
-        from1.innerHTML = 'VND'
-        to1.innerHTML = 'USD'
-    }
 
+    switch (rateFile) {
+        case 'ARSA':
+        case 'ARSB':
+            from1.innerHTML = 'USD'
+            to1.innerHTML = 'ARS'
+            break
+        case 'CLF':
+            from1.innerHTML = 'CLF'
+            to1.innerHTML = 'CLP'
+            break
+        case 'COP':
+            from1.innerHTML = 'USD'
+            to1.innerHTML = 'COP'
+            break
+        case 'MXN':
+            from1.innerHTML = 'USD'
+            to1.innerHTML = 'MXN'
+            break
+        case 'NGN':
+            from1.innerHTML = 'USD'
+            to1.innerHTML = 'NGN'
+            break
+        case 'PENA':
+        case 'PENB':
+            from1.innerHTML = 'USD'
+            to1.innerHTML = 'PEN'
+            break
+        case 'VND':
+            from1.innerHTML = 'VND'
+            to1.innerHTML = 'USD'
+            break
+    }
 })
 
 //Create txt file
