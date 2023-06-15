@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Download rates</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav>
+    <h1>Americas Currencies</h1>
+</nav>
+<main>
+    <h2>Enter a rate to create a file template</h2>
+    <form action="/submitRate" method="post">
+        <div class="rowElement">
+            <label for="rate_rate">Exchange Rate</label>
+            <input type="text" id="rate_rate" value="LOC_MXN">
+        </div>
+        <div class="rowElement">
+            <label for="rate_date">Exchange Rate Date</label>
+            <input type="date" id="rate_date">
+        </div>
+        <div id="gridTable">
+            <div class="headers">
+                <span>From</span>
+                <span>To</span>
+                <span>Value</span>
+            </div>
+            <div class="rowRate">
+                <span>USD</span>
+                <span>MXN</span>
+                <input type="number" STEP="0.0001" name="rate1">
+            </div>
+        </div>
+        <button type="submit">Create rate file</button>
+    </form>
+</main>
+<footer>Page made by Gustavo</footer>
+<script src="/index.js"></script>
+</body>
+</html>
