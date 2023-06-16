@@ -44,13 +44,14 @@ main {
     border-radius: 16px;
     padding: 16px;
     background-color: #DBE2EF;
-    color: #19A7CE;
+    color: rgba(39, 79, 127, 0.9);
     text-align: center;
 }
 
 h2{
     margin: 16px;
     margin-bottom: 32px;
+    color: rgba(39, 79, 127, 0.9);
 }
 
 .rowElement{
@@ -62,16 +63,22 @@ h2{
     text-align: left;
 }
 
-.rowElement input{
-    max-width: 140px;
+.rowElement input, .rowElement select{
+    max-width: 180px;
     box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 /*Grid Table*/
 #gridTable{
     width: 50%;
-    /*border: 1px solid black;*/
     margin: 24px auto;
+    border: 1px solid rgba(0,0,0,.1);
+    background-color: rgba(229, 233, 241, 0.9);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 10px 10px 15px -7px rgba(0,0,0,0.5);
 }
 
 .headers,
@@ -81,12 +88,45 @@ h2{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.headers{
+    padding: 10px;
+    background-color: rgba(39, 79, 127, 0.9);
+    color: white;
+    margin-bottom: 16px;
+}
+
+.rowRate1, .rowRate2{
+    margin: 8px auto;
+}
+
 .rowRate2{
     display: none;
 }
 
-.rowRate input::-webkit-outer-spin-button,
-.rowRate input::-webkit-inner-spin-button{
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
     -webkit-appearance: none;
     margin: 0;
+}
+
+input[type="number"]{
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    width: 75%;
+}
+
+button{
+    border-radius: 16px;
+    width: 130px;
+    border: #112D4E solid 1px;
+    padding: 8px;
+    background-color: white;
+    color: #112D4E;
+    transition: .2s;
+}
+
+button:hover{
+    background-color: #DBE2EF;
+    transform: translate(-1px,-1px);
+
 }
