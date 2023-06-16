@@ -2,71 +2,99 @@
 const rateDate = document.querySelector('#rate_date')
 rateDate.valueAsDate = new Date()
 
-// Change table inputs based on selecte item
+// Creates arry with currencies
+const arrCurrencies = [
+    ['ARSA','USD','ARS'],
+    ['ARSB','USD','ARS'],
+    ['CLF','CLF','CLP'],
+    ['COP','USD','COP'],
+    ['MXN','USD','MXN'],
+    ['NGN','USD','NGN'],
+    ['PENA','USD','PEN'],
+    ['PENB','USD','PEN'],
+    ['VND','VND','USD'],
+    ['BRL',
+        ['BRL','USD'],
+        ['BRL','EUR']
+    ],
+    ['IDR',
+        ['SGD','IDR'],
+        ['USD','IDR']
+    ],
+    ['MAD',
+        ['USD','MAD'],
+        ['EUR','MAD']
+    ],
+    ['KRW',
+        ['CNY','KRW'],
+        ['EUR','KRW'],
+        ['GBP','KRW'],
+        ['HKD','KRW'],
+        ['JPY','KRW'],
+        ['USD','KRW'],
+        ['RUB','KRW']
+    ],
+    ['MYR',
+        ['CNY','MYR'],
+        ['EUR','MYR'],
+        ['GBP','MYR'],
+        ['SGD','MYR'],
+        ['USD','MYR']
+    ],
+]
+
+// Creates elements based on the array
+function CreateNewRowElement(curFrom, curTo) {
+    const rowDiv = document.createElement('div')
+    const rowSpan1 = document.createElement('span')
+    const rowSpan2 = document.createElement('span')
+    const divChild = document.createElement('div')
+    const input1 = document.createElement('input')
+    const table = document.querySelector('#gridTable')
+    rowSpan1.innerHTML = curFrom
+    rowSpan2.innerHTML = curTo
+    input1.type = 'number'
+    input1.step = '0.0001'
+    divChild.appendChild(input1)
+    rowDiv.appendChild(rowSpan1)
+    rowDiv.appendChild(rowSpan2)
+    rowDiv.appendChild(divChild)
+    table.appendChild(rowDiv)
+}
+
+// Remove all elements in table
+function RemoveElements() {
+    const divsInTable = document.querySelectorAll('#gridTable > div')
+    divsInTable.forEach(div =>{
+        if (!(div.classList.value === 'headers')){
+            div.remove()
+        }
+    })
+}
+
+// Populates first element
 const selectInput = document.querySelector('#rate_rate')
-const from1 = document.querySelector('#from1')
-const to1 = document.querySelector('#to1')
-const from2 = document.querySelector('#from2')
-const to2 = document.querySelector('#to2')
-const divRate2 = document.querySelector('.rowRate2')
+const currRowStart = arrCurrencies.find(row =>{
+    return row[0] === selectInput.value
+})
+CreateNewRowElement(currRowStart[1],currRowStart[2])
+
+// Change table inputs based on selected item
 selectInput.addEventListener('change',(evt)=>{
     const rateFile = selectInput.value
-    if (['ARSA','ARSB','CLF','COP','MXN','NGN','PENA','PENB','VND'].includes(rateFile)){
-        divRate2.style.display = 'none'
-    }else if (['BRL','IDR','MAD'].includes(rateFile)){
-        divRate2.style.display = 'grid'
-    }
+    RemoveElements()
+    let currRow = arrCurrencies.find(row =>{
+        return row[0] === rateFile
+    })
 
-    switch (rateFile) {
-        case 'ARSA':
-        case 'ARSB':
-            from1.innerHTML = 'USD'
-            to1.innerHTML = 'ARS'
-            break
-        case 'CLF':
-            from1.innerHTML = 'CLF'
-            to1.innerHTML = 'CLP'
-            break
-        case 'COP':
-            from1.innerHTML = 'USD'
-            to1.innerHTML = 'COP'
-            break
-        case 'MXN':
-            from1.innerHTML = 'USD'
-            to1.innerHTML = 'MXN'
-            break
-        case 'NGN':
-            from1.innerHTML = 'USD'
-            to1.innerHTML = 'NGN'
-            break
-        case 'PENA':
-        case 'PENB':
-            from1.innerHTML = 'USD'
-            to1.innerHTML = 'PEN'
-            break
-        case 'VND':
-            from1.innerHTML = 'VND'
-            to1.innerHTML = 'USD'
-            break
-        // Case with two rates
-        case 'BRL':
-            from1.innerHTML = 'BRL'
-            to1.innerHTML = 'USD'
-            from2.innerHTML = 'BRL'
-            to2.innerHTML = 'EUR'
-            break
-        case 'IDR':
-            from1.innerHTML = 'SGD'
-            to1.innerHTML = 'IDR'
-            from2.innerHTML = 'USD'
-            to2.innerHTML = 'IDR'
-            break
-        case 'MAD':
-            from1.innerHTML = 'USD'
-            to1.innerHTML = 'MAD'
-            from2.innerHTML = 'EUR'
-            to2.innerHTML = 'MAD'
-            break
+    if (currRow[1].length === 3) {
+        CreateNewRowElement(currRow[1],currRow[2])
+    }else{
+        for (let fromTo of currRow){
+            if (fromTo.length < 3){
+                CreateNewRowElement(fromTo[0],fromTo[1])
+            }
+        }
     }
 })
 

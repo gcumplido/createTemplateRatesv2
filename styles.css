@@ -82,9 +82,7 @@ h2{
     box-shadow: 10px 10px 15px -7px rgba(0,0,0,0.5);
 }
 
-.headers,
-.rowRate1,
-.rowRate2{
+#gridTable > div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -96,11 +94,13 @@ h2{
     margin-bottom: 16px;
 }
 
-.rowRate1, .rowRate2{
+#gridTable > div:not(.headers){
     margin: 8px auto;
 }
 
-.rowRate2{
+#gridTable .disp2,
+#gridTable .disp5,
+#gridTable .disp7{
     display: none;
 }
 
@@ -130,7 +130,6 @@ button{
 button:hover{
     background-color: #DBE2EF;
     transform: translate(-1px,-1px);
-
 }
 
 @media only screen and (max-width: 700px) {
