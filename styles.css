@@ -52,6 +52,7 @@ h2{
     margin: 16px;
     margin-bottom: 32px;
     color: rgba(39, 79, 127, 0.9);
+    font-family: 'Open Sans', sans-serif;
 }
 
 .rowElement{
@@ -123,6 +124,7 @@ button{
     background-color: white;
     color: #112D4E;
     transition: .2s;
+    cursor: pointer;
 }
 
 button:hover{
