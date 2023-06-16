@@ -2,45 +2,63 @@
 const rateDate = document.querySelector('#rate_date')
 rateDate.valueAsDate = new Date()
 
-// Creates arry with currencies
+// Creates array with currencies
 const arrCurrencies = [
-    ['ARSA','USD','ARS'],
-    ['ARSB','USD','ARS'],
-    ['CLF','CLF','CLP'],
-    ['COP','USD','COP'],
-    ['MXN','USD','MXN'],
-    ['NGN','USD','NGN'],
-    ['PENA','USD','PEN'],
-    ['PENB','USD','PEN'],
-    ['VND','VND','USD'],
-    ['BRL',
-        ['BRL','USD'],
-        ['BRL','EUR']
+    ['ARSA', 'L_USD_ARS_ASK|0|6|cFrom|cTo|rVal||rDate|Banco Nacion Argentina|', 'USD', 'ARS'],
+    ['ARSB', 'L_USD_ARS_BID|0|6|cFrom|cTo|rVal||rDate|Banco Nacion Argentina|', 'USD', 'ARS'],
+    ['CLF', 'L_CLF_CLP|0|6|cFrom|cTo|rVal||rDate|Chile&apos Central Bank|', 'CLF', 'CLP'],
+    ['COP', 'L_USD_COP|0|6|cFrom|cTo|rVal||rDate|Superintendencia financiera de Colombia|', 'USD', 'COP'],
+    ['MXN', 'LOCUSDMXN|0|6|cFrom|cTo|rVal||rDate|Banco de Mexico|', 'USD', 'MXN'],
+    ['NGN', 'L_USD_NGN|0|6|cFrom|cTo|rVal||rDate|Central Bank of Nigeria|', 'USD', 'NGN'],
+    ['PENA', 'L_USD_PEN_ASK|0|6|cFrom|cTo|rVal||rDate|SBS - Goverment agency Superintendencia de Banca|', 'USD', 'PEN'],
+    ['PENB', 'L_USD_PEN_BID|0|6|cFrom|cTo|rVal||rDate|SBS - Goverment agency Superintendencia de Banca|', 'USD', 'PEN'],
+    ['VND', 'USDtoVND|0|6|cFrom|cTo|rVal||rDate|JP Morgan Bank|', 'VND', 'USD'],
+    ['BRL', 'cTotocFrom|0|6|cFrom|cTo|rVal||rDate|Banco Real|',
+        ['BRL', 'USD'],
+        ['BRL', 'EUR']
     ],
-    ['IDR',
-        ['SGD','IDR'],
-        ['USD','IDR']
+    ['IDR', 'L_cFrom_IDR|0|6|cFrom|cTo|rVal||rDate|Bank Indonesia|',
+        ['SGD', 'IDR'],
+        ['USD', 'IDR']
     ],
-    ['MAD',
-        ['USD','MAD'],
-        ['EUR','MAD']
+    ['MAD', 'L_cFrom_MAD|0|6|cFrom|cTo|rVal||rDate|Bank of Morocco|',
+        ['USD', 'MAD'],
+        ['EUR', 'MAD']
     ],
-    ['KRW',
-        ['CNY','KRW'],
-        ['EUR','KRW'],
-        ['GBP','KRW'],
-        ['HKD','KRW'],
-        ['JPY','KRW'],
-        ['USD','KRW'],
-        ['RUB','KRW']
+    ['KRW', 'L_cFrom_KRW|0|6|cFrom|cTo|rVal||rDate|Seoul Money Brokerage Service|',
+        ['CNY', 'KRW'],
+        ['EUR', 'KRW'],
+        ['GBP', 'KRW'],
+        ['HKD', 'KRW'],
+        ['JPY', 'KRW'],
+        ['USD', 'KRW'],
+        ['RUB', 'KRW']
     ],
-    ['MYR',
-        ['CNY','MYR'],
-        ['EUR','MYR'],
-        ['GBP','MYR'],
-        ['SGD','MYR'],
-        ['USD','MYR']
+    ['MYR', 'L_cFrom_MYR|0|6|cFrom|cTo|rVal||rDate|Central Bank of Malaysia|',
+        ['CNY', 'MYR'],
+        ['EUR', 'MYR'],
+        ['GBP', 'MYR'],
+        ['SGD', 'MYR'],
+        ['USD', 'MYR']
     ],
+]
+
+// Create array with more information
+const arrExtraInfo = [
+    ['ARSA', 'LOC_ARS_ASK.OUT'],
+    ['ARSB', 'LOC_ARS_BID.OUT'],
+    ['CLF', 'LOC_CLF_CLP_MID.OUT'],
+    ['COP','LOC_COP_MID.OUT'],
+    ['MXN', 'LOC_MXN_MID.OUT'],
+    ['NGN','LOC_NGN_MID.OUT' ],
+    ['PENA','LOC_PEN_ASK.OUT'],
+    ['PENB','LOC_PEN_BID.OUT'],
+    ['VND','LOC_VND_MID_MEC.OUT'],
+    ['BRL', 'LOC_BRL_MID_MEC.OUT'],
+    ['IDR','LOC_IDR_MID.OUT'],
+    ['MAD', 'LOC_MAD_MID.OUT'],
+    ['KRW','LOC_KRW_MID.OUT'],
+    ['MYR','LOC_MYR_MID.OUT']
 ]
 
 // Creates elements based on the array
@@ -65,8 +83,8 @@ function CreateNewRowElement(curFrom, curTo) {
 // Remove all elements in table
 function RemoveElements() {
     const divsInTable = document.querySelectorAll('#gridTable > div')
-    divsInTable.forEach(div =>{
-        if (!(div.classList.value === 'headers')){
+    divsInTable.forEach(div => {
+        if (!(div.classList.value === 'headers')) {
             div.remove()
         }
     })
@@ -74,25 +92,25 @@ function RemoveElements() {
 
 // Populates first element
 const selectInput = document.querySelector('#rate_rate')
-const currRowStart = arrCurrencies.find(row =>{
+const currRowStart = arrCurrencies.find(row => {
     return row[0] === selectInput.value
 })
-CreateNewRowElement(currRowStart[1],currRowStart[2])
+CreateNewRowElement(currRowStart[2], currRowStart[3])
 
 // Change table inputs based on selected item
-selectInput.addEventListener('change',(evt)=>{
+selectInput.addEventListener('change', (evt) => {
     const rateFile = selectInput.value
     RemoveElements()
-    let currRow = arrCurrencies.find(row =>{
+    let currRow = arrCurrencies.find(row => {
         return row[0] === rateFile
     })
 
-    if (currRow[1].length === 3) {
-        CreateNewRowElement(currRow[1],currRow[2])
-    }else{
-        for (let fromTo of currRow){
-            if (fromTo.length < 3){
-                CreateNewRowElement(fromTo[0],fromTo[1])
+    if (currRow[2].length === 3) {
+        CreateNewRowElement(currRow[2], currRow[3])
+    } else {
+        for (let fromTo of currRow) {
+            if (fromTo.length < 3) {
+                CreateNewRowElement(fromTo[0], fromTo[1])
             }
         }
     }
@@ -100,18 +118,54 @@ selectInput.addEventListener('change',(evt)=>{
 
 //Create txt file
 const form = document.querySelector('form')
-const rateId = document.querySelector('#rate_rate')
-const rateVal = document.querySelector('#rate1')
 
-form.addEventListener('submit',(evt)=>{
+form.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    const textContent = `Hola mi nombre es gus ${rateVal.value}`
-    const blob = new Blob([textContent],{type: 'text/pain'})
+    const rateFile = selectInput.value
+    const options = {year: 'numeric', month: '2-digit', day: '2-digit'};
+    const dateToWrite = new Date().toLocaleDateString('en-US', options)
+    const divsInTable = document.querySelectorAll('#gridTable > div')
+    let textContent = ''
 
+    // Find currency Row
+    const currRow = arrCurrencies.find(row => {
+        return row[0] === rateFile
+    })
+
+    // Find currency row in extra info
+    const currRowExtra = arrExtraInfo.find(row => {
+        return row[0] === rateFile
+    })
+
+    if (currRow[2].length === 3) {
+        textContent = currRow[1]
+        textContent = textContent.replaceAll('cFrom', currRow[2])
+        textContent = textContent.replaceAll('cTo', currRow[3])
+        textContent = textContent.replaceAll('rVal', divsInTable[1].querySelector('input').value)
+        textContent = textContent.replaceAll('rDate', dateToWrite)
+    } else {
+        currRow.forEach((currElement, i) => {
+            if (i > 1) {
+                textContent += currRow[1]
+                textContent = textContent.replaceAll('cFrom', currElement[0])
+                textContent = textContent.replaceAll('cTo', currElement[1])
+                textContent = textContent.replaceAll('rVal', divsInTable[i - 1].querySelector('input').value)
+                textContent = textContent.replaceAll('rDate', dateToWrite)
+                if (i < currRow.length - 1) {
+                    textContent += '\r\n'
+                }
+            }
+        })
+    }
+
+    // Creates a file and downloads it
+    const blob = new Blob([textContent], {type: 'text/pain'})
     const link = document.createElement('a')
     link.href = URL.createObjectURL(blob)
-    link.download = 'rate.txt'
-
+    // link.download = 'rate.txt'
+    link.download = currRowExtra[1]
     link.click()
-    rateVal.value = ''
+
+    divsInTable
+    form.reset()
 })
