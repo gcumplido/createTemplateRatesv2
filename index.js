@@ -166,6 +166,9 @@ form.addEventListener('submit', (evt) => {
     link.download = currRowExtra[1]
     link.click()
 
-    divsInTable
-    form.reset()
+    divsInTable.forEach((ele,i) =>{
+        if (i>0){
+            ele.querySelector('input').value = ''
+        }
+    })
 })
