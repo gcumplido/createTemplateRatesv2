@@ -130,3 +130,9 @@ button:hover{
     transform: translate(-1px,-1px);
 
 }
+
+@media only screen and (max-width: 700px) {
+    .rowElement, #gridTable {
+        width: 90%;
+    }
+}
