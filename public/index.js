@@ -72,7 +72,7 @@ function CreateNewRowElement(curFrom, curTo) {
     rowSpan1.innerHTML = curFrom
     rowSpan2.innerHTML = curTo
     input1.type = 'number'
-    input1.step = '0.0001'
+    input1.step = '0.00001'
     divChild.appendChild(input1)
     rowDiv.appendChild(rowSpan1)
     rowDiv.appendChild(rowSpan2)
@@ -122,8 +122,8 @@ const form = document.querySelector('form')
 form.addEventListener('submit', (evt) => {
     evt.preventDefault()
     const rateFile = selectInput.value
-    const options = {year: 'numeric', month: '2-digit', day: '2-digit'};
-    const dateToWrite = new Date().toLocaleDateString('en-US', options)
+    const [year,month,day] = rateDate.value.split('-')
+    const dateToWrite = `${month}/${day}/${year}`
     const divsInTable = document.querySelectorAll('#gridTable > div')
     let textContent = ''
 
