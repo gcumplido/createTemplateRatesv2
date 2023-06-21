@@ -12,7 +12,7 @@ const arrCurrencies = [
     ['NGN', 'L_USD_NGN|0|6|cFrom|cTo|rVal||rDate|Central Bank of Nigeria|', 'USD', 'NGN'],
     ['PENA', 'L_USD_PEN_ASK|0|6|cFrom|cTo|rVal||rDate|SBS - Goverment agency Superintendencia de Banca|', 'USD', 'PEN'],
     ['PENB', 'L_USD_PEN_BID|0|6|cFrom|cTo|rVal||rDate|SBS - Goverment agency Superintendencia de Banca|', 'USD', 'PEN'],
-    ['VND', 'USDtoVND|0|6|cFrom|cTo|rVal||rDate|JP Morgan Bank|', 'VND', 'USD'],
+    ['VNDM', 'USDtoVND|0|6|cFrom|cTo|rVal||rDate|JP Morgan Bank|', 'VND', 'USD'],
     ['BRL', 'cTotocFrom|0|6|cFrom|cTo|rVal||rDate|Banco Real|',
         ['BRL', 'USD'],
         ['BRL', 'EUR']
@@ -41,6 +41,33 @@ const arrCurrencies = [
         ['SGD', 'MYR'],
         ['USD', 'MYR']
     ],
+    ['EUR','EUCFcFrom|0|6|cFrom|cTo|rVal||rDate|European Central Bank|',
+        ['BGN', 'EUR'],
+        ['CZK', 'EUR'],
+        ['DKK', 'EUR'],
+        ['HUF', 'EUR'],
+        ['PLN', 'EUR'],
+        ['RON', 'EUR'],
+        ['NOK', 'EUR'],
+        ['HRK', 'EUR'],
+        ['TRY', 'EUR'],
+        ['SGD', 'EUR'],
+        ['THB', 'EUR'],
+        ['ILS', 'EUR']
+    ],
+    ['NZD','NZDcTo|0|6|cFrom|cTo|rVal||rDate|New Zealand Central Bank|',
+        ['NZD', 'AUD'],
+        ['NZD', 'CHF'],
+        ['NZD', 'EUR'],
+        ['NZD', 'GBP'],
+        ['NZD', 'JPY'],
+        ['NZD', 'USD']
+    ],
+    ['SEK','L_cFrom_SEK|0|6|cFrom|cTo|rVal||rDate|SVERIGES RIKSBANK|',
+        ['EUR', 'SEK'],
+        ['USD', 'SEK']
+    ],
+    ['VND','USDVND|0|6|cFrom|cTo|rVal||rDate|State Bank of Vietnam (SBV)|', 'USD', 'VND']
 ]
 
 // Create array with more information
@@ -53,12 +80,16 @@ const arrExtraInfo = [
     ['NGN','LOC_NGN_MID.OUT' ],
     ['PENA','LOC_PEN_ASK.OUT'],
     ['PENB','LOC_PEN_BID.OUT'],
-    ['VND','LOC_VND_MID_MEC.OUT'],
+    ['VNDM','LOC_VND_MID_MEC.OUT'],
     ['BRL', 'LOC_BRL_MID_MEC.OUT'],
     ['IDR','LOC_IDR_MID.OUT'],
     ['MAD', 'LOC_MAD_MID.OUT'],
     ['KRW','LOC_KRW_MID.OUT'],
-    ['MYR','LOC_MYR_MID.OUT']
+    ['MYR','LOC_MYR_MID.OUT'],
+    ['EUR', 'LOC_EUR_MID.OUT'],
+    ['NZD', 'LOC_NZD_MID.OUT'],
+    ['SEK', 'LOC_SEK_MID.OUT'],
+    ['VND', 'LOC_VND_MID.OUT']
 ]
 
 // Creates elements based on the array
