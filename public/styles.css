@@ -5,12 +5,13 @@ body {
     padding: 0;
     height: 100vh;
     background-color: #F6F1F1;
+    display: flex;
+    flex-direction: column;
 }
 
 /*Headers styles*/
 nav {
     padding: 16px;
-    margin-bottom: 48px;
     background-color: #112D4E;
 }
 
@@ -24,7 +25,9 @@ h1 {
 
 /*footer styles*/
 footer {
-    position: absolute;
+    position: relative;
+    margin-top: auto;
+    flex-shrink: 0;
     left: 0;
     bottom: 0;
     height: 64px;
@@ -40,7 +43,7 @@ footer {
 main {
     width: 90%;
     max-width: 1200px;
-    margin: 16px auto;
+    margin: 48px auto;
     border-radius: 16px;
     padding: 16px;
     background-color: #DBE2EF;
