@@ -67,7 +67,8 @@ const arrCurrencies = [
         ['EUR', 'SEK'],
         ['USD', 'SEK']
     ],
-    ['VND','USDVND|0|6|cFrom|cTo|rVal||rDate|State Bank of Vietnam (SBV)|', 'USD', 'VND']
+    ['VND','USDVND|0|6|cFrom|cTo|rVal||rDate|State Bank of Vietnam (SBV)|', 'USD', 'VND'],
+    ['NGNM','NGN_USD_MID_MEC|0|6|cFrom|cTo|rVal||rDate|Central Bank of Nigeria|', 'USD', 'NGN']
 ]
 
 // Create array with more information
@@ -89,7 +90,8 @@ const arrExtraInfo = [
     ['EUR', 'LOC_EUR_MID.OUT'],
     ['NZD', 'LOC_NZD_MID.OUT'],
     ['SEK', 'LOC_SEK_MID.OUT'],
-    ['VND', 'LOC_VND_MID.OUT']
+    ['VND', 'LOC_VND_MID.OUT'],
+    ['NGNM', 'LOC_NGN_MID_MEC.OUT']
 ]
 
 // Creates elements based on the array
