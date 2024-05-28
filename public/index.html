@@ -1,63 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <title>Create Templates</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<nav>
-    <h1>Currencies templates</h1>
-</nav>
-<main>
-    <h2>Enter a rate to create a file template</h2>
-    <form action="/submitRate" method="post">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <h1>Currencies templates</h1>
+    </nav>
+    <main>
+      <h2>Enter a rate to create a file template</h2>
+      <form action="/submitRate" method="post">
         <div class="rowElement">
-            <label for="rate_rate">Exchange Rate</label>
-            <select name="" id="rate_rate">
-                <option value="ARSA">LOC_ARS_ASK (Venta)</option>
-                <option value="ARSB">LOC_ARS_BID (Compra)</option>
-                <option value="BRL">LOC_BRL_MEC</option>
-                <option value="CLF">LOC_CLF</option>
-                <option value="COP">LOC_COP</option>
-                <option value="EUR">LOC_EUR</option>
-                <option value="IDR">LOC_IDR</option>
-                <option value="KRW">LOC_KRW</option>
-                <option value="MAD">LOC_MAD</option>
-                <option value="MXN">LOC_MXN</option>
-                <option value="MYR">LOC_MYR</option>
-                <option value="NGN">LOC_NGN</option>
-                <option value="NGNM">LOC_NGN_MEC</option>
-                <option value="NZD">LOC_NZD</option>
-                <option value="PENA">LOC_PEN_ASK (Venta)</option>
-                <option value="PENB">LOC_PEN_BID (Compra)</option>
-                <option value="SEK">LOC_SEK</option>
-                <option value="VND">LOC_VND</option>
-                <option value="VNDM">LOC_VND_MEC</option>
-            </select>
+          <label for="rate_rate">Exchange Rate</label>
+          <select name="" id="rate_rate">
+            <option value="ARSA">LOC_ARS_ASK (Venta)</option>
+            <option value="ARSB">LOC_ARS_BID (Compra)</option>
+            <option value="BRL">LOC_BRL_MEC</option>
+            <option value="CLF">LOC_CLF</option>
+            <option value="COP">LOC_COP</option>
+            <option value="EUR">LOC_EUR</option>
+            <option value="GLA">LOC_GLA</option>
+            <option value="IDR">LOC_IDR</option>
+            <option value="IPG">LOC_IPG</option>
+            <option value="KRW">LOC_KRW</option>
+            <option value="MAD">LOC_MAD</option>
+            <option value="MXN">LOC_MXN</option>
+            <option value="MYR">LOC_MYR</option>
+            <option value="PSG">LOC_PSG</option>
+            <option value="NGN">LOC_NGN</option>
+            <option value="NGNM">LOC_NGN_MEC</option>
+            <option value="NZD">LOC_NZD</option>
+            <option value="PENA">LOC_PEN_ASK (Venta)</option>
+            <option value="PENB">LOC_PEN_BID (Compra)</option>
+            <option value="SEK">LOC_SEK</option>
+            <option value="SUP">LOC_SUP</option>
+            <option value="VND">LOC_VND</option>
+            <option value="VNDM">LOC_VND_MEC</option>
+          </select>
         </div>
         <div class="rowElement">
-            <label for="rate_date">Exchange Rate Date</label>
-            <input type="date" id="rate_date">
+          <label for="rate_date">Exchange Rate Date</label>
+          <input type="date" id="rate_date" />
         </div>
         <div id="gridTable">
-            <div class="headers">
-                <span>From</span>
-                <span>To</span>
-                <span>Value</span>
-            </div>
+          <div class="headers">
+            <span>From</span>
+            <span>To</span>
+            <span>Value</span>
+          </div>
         </div>
         <button type="submit">Create rate file</button>
-    </form>
-</main>
-<footer>Page made by Gustavo Cumplido</footer>
-<script src="index.js"></script>
-</body>
+      </form>
+    </main>
+    <footer>Page made by Gustavo Cumplido</footer>
+    <script src="index.js"></script>
+  </body>
 </html>

@@ -68,7 +68,131 @@ const arrCurrencies = [
         ['USD', 'SEK']
     ],
     ['VND','USDVND|0|6|cFrom|cTo|rVal||rDate|State Bank of Vietnam (SBV)|', 'USD', 'VND'],
-    ['NGNM','NGN_USD_MID_MEC|0|6|cFrom|cTo|rVal||rDate|Central Bank of Nigeria|', 'USD', 'NGN']
+    ['NGNM','NGN_USD_MID_MEC|0|6|cFrom|cTo|rVal||rDate|Central Bank of Nigeria|', 'USD', 'NGN'],
+    ['GLA','cTocFrom|0|6|cFrom|cTo|rVal||rDate|various|',
+        ['VND','USD'],
+        ['KRW','USD'],
+        ['MYR','USD'],
+        ['CAD','USD'],
+        ['NOK','USD'],
+        ['SEK','USD'],
+        ['CHF','USD'],
+        ['HKD','USD'],
+        ['GBP','USD'],
+        ['CLP','USD'],
+        ['ARS','USD'],
+        ['COP','USD'],
+        ['DKK','USD'],
+        ['EUR','USD'],
+        ['HUF','USD'],
+        ['MXN','USD'],
+        ['PEN','USD'],
+        ['PLN','USD'],
+        ['RUB','USD'],
+        ['ZAR','USD'],
+        ['CZK','USD'],
+        ['AUD','USD'],
+        ['PHP','USD'],
+        ['CNY','USD'],
+        ['IDR','USD'],
+        ['INR','USD'],
+        ['AUD','USD'],
+        ['BRL','USD'],
+        ['JPY','USD'],
+        ['SGD','USD'],
+        ['TWD','USD'],
+        ['THB','USD'],
+        ['NZD','USD'],
+    ],
+    ['IPG','cTocFrom|0|6|cFrom|cTo|rVal||rDate|various|',
+        ['KRW','USD'],
+        ['MYR','USD'],
+        ['THB','USD'],
+        ['BRL','USD'],
+        ['CAD','USD'],
+        ['NOK','USD'],
+        ['SEK','USD'],
+        ['VND','USD'],
+        ['CHF','USD'],
+        ['JPY','USD'],
+        ['TWD','USD'],
+        ['HKD','USD'],
+        ['GBP','USD'],
+        ['CLP','USD'],
+        ['ARS','USD'],
+        ['COP','USD'],
+        ['DKK','USD'],
+        ['EUR','USD'],
+        ['HUF','USD'],
+        ['MXN','USD'],
+        ['PEN','USD'],
+        ['PLN','USD'],
+        ['NZD','USD'],
+        ['SGD','USD'],
+        ['RUB','USD'],
+        ['ZAR','USD'],
+        ['CZK','USD'],
+        ['AUD','USD'],
+        ['PHP','USD'],
+        ['CNY','USD'],
+        ['IDR','USD'],
+        ['INR','USD'],
+    ],
+    ['PSG','cTocFrom|0|6|cFrom|cTo|rVal||rDate|various|',
+        ['RUB','USD'],
+        ['JPY','USD'],
+        ['TWD','USD'],
+        ['CHF','USD'],
+        ['DKK','USD'],
+        ['EUR','USD'],
+        ['GBP','USD'],
+        ['BRL','USD'],
+        ['KRW','USD'],
+        ['MYR','USD'],
+        ['THB','USD'],
+        ['CAD','USD'],
+        ['NOK','USD'],
+        ['SEK','USD'],
+        ['VND','USD'],
+        ['HKD','USD'],
+        ['CLP','USD'],
+        ['ARS','USD'],
+        ['COP','USD'],
+        ['HUF','USD'],
+        ['MXN','USD'],
+        ['PEN','USD'],
+        ['PLN','USD'],
+        ['ZAR','USD'],
+        ['CZK','USD'],
+        ['AUD','USD'],
+        ['PHP','USD'],
+        ['CNY','USD'],
+        ['IDR','USD'],
+        ['INR','USD'],
+        ['NZD','USD'],
+        ['SGD','USD'],
+    ],
+    ['SUP','cTocFrom|0|6|cFrom|cTo|rVal||rDate|various|',
+        ['KRW','USD'],
+        ['MYR','USD'],
+        ['THB','USD'],
+        ['CAD','USD'],
+        ['BRL','USD'],
+        ['VND','USD'],
+        ['HKD','USD'],
+        ['CLP','USD'],
+        ['MXN','USD'],
+        ['JPY','USD'],
+        ['TWD','USD'],
+        ['AUD','USD'],
+        ['PHP','USD'],
+        ['CNY','USD'],
+        ['IDR','USD'],
+        ['INR','USD'],
+        ['EUR','USD'],
+        ['NZD','USD'],
+        ['SGD','USD'],
+    ]
 ]
 
 // Create array with more information
@@ -91,7 +215,11 @@ const arrExtraInfo = [
     ['NZD', 'LOC_NZD_MID.OUT'],
     ['SEK', 'LOC_SEK_MID.OUT'],
     ['VND', 'LOC_VND_MID.OUT'],
-    ['NGNM', 'LOC_NGN_MID_MEC.OUT']
+    ['NGNM', 'LOC_NGN_MID_MEC.OUT'],
+    ['GLA', 'LOC_GLA_MID.OUT'],
+    ['IPG', 'LOC_IPG_MID.OUT'],
+    ['PSG', 'LOC_PSG_MID.OUT'],
+    ['SUP', 'LOC_SUP_MID.OUT'],
 ]
 
 // Creates elements based on the array
@@ -174,18 +302,36 @@ form.addEventListener('submit', (evt) => {
         textContent = currRow[1]
         textContent = textContent.replaceAll('cFrom', currRow[2])
         textContent = textContent.replaceAll('cTo', currRow[3])
-        textContent = textContent.replaceAll('rVal', divsInTable[1].querySelector('input').value)
+        textContent = textContent.replaceAll('rVal', parseFloat(divsInTable[1].querySelector('input').value).toFixed(6))
         textContent = textContent.replaceAll('rDate', dateToWrite)
     } else {
+        let fristAUD = false
         currRow.forEach((currElement, i) => {
             if (i > 1) {
-                textContent += currRow[1]
-                textContent = textContent.replaceAll('cFrom', currElement[0])
-                textContent = textContent.replaceAll('cTo', currElement[1])
-                textContent = textContent.replaceAll('rVal', divsInTable[i - 1].querySelector('input').value)
-                textContent = textContent.replaceAll('rDate', dateToWrite)
-                if (i < currRow.length - 1) {
-                    textContent += '\r\n'
+                //Skips lines with no values
+                let rateValue = divsInTable[i - 1].querySelector('input').value
+                
+                if (rateValue !== '') {
+                    
+                    textContent += currRow[1]
+
+                    //Exception for GLA currecny fro VND and AUD
+                    if (rateFile === 'GLA' && (currElement[0] === 'VND' || currElement[0] === 'AUD') ){
+                        if((currElement[0] === 'AUD' && fristAUD === true) || currElement[0] === 'VND'){
+                            textContent = textContent.replaceAll('cTocFrom', currElement[0] + currElement[1])
+                        }
+                    }
+                    if (rateFile === 'GLA' &&  currElement[0] === 'AUD') {
+                        fristAUD = true
+                    }
+                                   
+                    textContent = textContent.replaceAll('cFrom', currElement[0])
+                    textContent = textContent.replaceAll('cTo', currElement[1])
+                    textContent = textContent.replaceAll('rVal', parseFloat(rateValue).toFixed(6))
+                    textContent = textContent.replaceAll('rDate', dateToWrite)
+                    if (i < currRow.length - 1) {
+                        textContent += '\r\n'
+                    }
                 }
             }
         })
