@@ -1,0 +1,54 @@
+[debug] [2024-05-29T00:46:03.017Z] ----------------------------------------------------------------------
+[debug] [2024-05-29T00:46:03.020Z] Command:       C:\Users\gus_c\DOWNLO~1\firebase-tools-instant-win.exe C:\Users\gus_c\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase emulators:start
+[debug] [2024-05-29T00:46:03.020Z] CLI Version:   13.10.2
+[debug] [2024-05-29T00:46:03.021Z] Platform:      win32
+[debug] [2024-05-29T00:46:03.021Z] Node Version:  v18.5.0
+[debug] [2024-05-29T00:46:03.024Z] Time:          Tue May 28 2024 19:46:03 GMT-0500 (GMT-05:00)
+[debug] [2024-05-29T00:46:03.024Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-29T00:46:03.233Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-29T00:46:03.235Z] > authorizing via signed-in user (guscumplidog@gmail.com)
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[debug] [2024-05-29T00:46:03.252Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-29T00:46:03.252Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-29T00:46:03.253Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-05-29T00:46:03.263Z] [hub] writing locator at C:\Users\gus_c\AppData\Local\Temp\hub-currencytemplates.json
+[debug] [2024-05-29T00:46:03.302Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/currencytemplates/sites 
+[debug] [2024-05-29T00:46:04.131Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/currencytemplates/sites 200
+[debug] [2024-05-29T00:46:04.132Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/currencytemplates/sites {"sites":[{"name":"projects/currencytemplates/sites/currencytemplates","defaultUrl":"https://currencytemplates.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-05-29T00:46:04.132Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/currencytemplates/webApps/-/config [none]
+[debug] [2024-05-29T00:46:04.503Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/currencytemplates/webApps/-/config 200
+[debug] [2024-05-29T00:46:04.503Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/currencytemplates/webApps/-/config {"projectId":"currencytemplates","storageBucket":"currencytemplates.appspot.com","apiKey":"AIzaSyChUk6bIlpx60q7qftovGVoLK-ig3AxnMk","authDomain":"currencytemplates.firebaseapp.com","messagingSenderId":"1089835338636"}
+[debug] [2024-05-29T00:46:04.529Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/currencytemplates [none]
+[debug] [2024-05-29T00:46:04.730Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/currencytemplates 200
+[debug] [2024-05-29T00:46:04.731Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/currencytemplates {"projectId":"currencytemplates","projectNumber":"1089835338636","displayName":"CurrencyTemplates","name":"projects/currencytemplates","resources":{"hostingSite":"currencytemplates"},"state":"ACTIVE","etag":"1_d6afc307-9fc5-45ba-a25b-76991cbc495b"}
+[info] i  hosting[currencytemplates]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[currencytemplates]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[warn] !  emulators: The Emulator UI is not starting, either because none of the running emulators have a UI component or the Emulator UI cannot determine the Project ID. Pass the --project flag to specify a project. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI is not starting, either because none of the running emulators have a UI component or the Emulator UI cannot determine the Project ID. Pass the --project flag to specify a project."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ 127.0.0.1:5000 │
+└──────────┴────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [29/May/2024:00:46:39 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/May/2024:00:46:39 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [29/May/2024:00:46:39 +0000] "GET /styles.css HTTP/1.1" 200 - "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/May/2024:00:46:39 +0000] \"GET /styles.css HTTP/1.1\" 200 - \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [29/May/2024:00:46:39 +0000] "GET /index.js HTTP/1.1" 200 - "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/May/2024:00:46:39 +0000] \"GET /index.js HTTP/1.1\" 200 - \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [29/May/2024:00:46:40 +0000] "GET /favicon.png HTTP/1.1" 200 12181 "http://127.0.0.1:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/May/2024:00:46:40 +0000] \"GET /favicon.png HTTP/1.1\" 200 12181 \"http://127.0.0.1:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36\""}}
+[debug] [2024-05-29T00:51:14.734Z] Received signal SIGHUP 1
+[info]  
+[info] i  emulators: Received SIGHUP for the first time. Starting a clean shutdown. 
+[info] i  emulators: Please wait for a clean shutdown or send the SIGHUP signal again to stop right now. 
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  hosting: Stopping Hosting Emulator {"metadata":{"emulator":{"name":"hosting"},"message":"Stopping Hosting Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[info] i  logging: Stopping Logging Emulator {"metadata":{"emulator":{"name":"logging"},"message":"Stopping Logging Emulator"}}

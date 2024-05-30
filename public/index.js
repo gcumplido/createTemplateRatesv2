@@ -102,7 +102,7 @@ const arrCurrencies = [
         ['SGD','USD'],
         ['TWD','USD'],
         ['THB','USD'],
-        ['NZD','USD'],
+        ['NZD','USD']
     ],
     ['IPG','cTocFrom|0|6|cFrom|cTo|rVal||rDate|various|',
         ['KRW','USD'],
@@ -136,7 +136,7 @@ const arrCurrencies = [
         ['PHP','USD'],
         ['CNY','USD'],
         ['IDR','USD'],
-        ['INR','USD'],
+        ['INR','USD']
     ],
     ['PSG','cTocFrom|0|6|cFrom|cTo|rVal||rDate|various|',
         ['RUB','USD'],
@@ -170,7 +170,7 @@ const arrCurrencies = [
         ['IDR','USD'],
         ['INR','USD'],
         ['NZD','USD'],
-        ['SGD','USD'],
+        ['SGD','USD']
     ],
     ['SUP','cTocFrom|0|6|cFrom|cTo|rVal||rDate|various|',
         ['KRW','USD'],
@@ -191,7 +191,7 @@ const arrCurrencies = [
         ['INR','USD'],
         ['EUR','USD'],
         ['NZD','USD'],
-        ['SGD','USD'],
+        ['SGD','USD']
     ]
 ]
 
@@ -219,7 +219,7 @@ const arrExtraInfo = [
     ['GLA', 'LOC_GLA_MID.OUT'],
     ['IPG', 'LOC_IPG_MID.OUT'],
     ['PSG', 'LOC_PSG_MID.OUT'],
-    ['SUP', 'LOC_SUP_MID.OUT'],
+    ['SUP', 'LOC_SUP_MID.OUT']
 ]
 
 // Creates elements based on the array
