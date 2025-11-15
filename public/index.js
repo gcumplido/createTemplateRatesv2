@@ -3,6 +3,7 @@ const rateDate = document.querySelector('#rate_date')
 rateDate.valueAsDate = new Date()
 
 // Creates array with currencies
+// Step 1 of 3 to add new currency file, define the file structure and rates needed
 const arrCurrencies = [
     ['ARSA', 'L_USD_ARS_ASK|0|6|cFrom|cTo|rVal||rDate|Banco Nacion Argentina|', 'USD', 'ARS'],
     ['ARSB', 'L_USD_ARS_BID|0|6|cFrom|cTo|rVal||rDate|Banco Nacion Argentina|', 'USD', 'ARS'],
@@ -96,7 +97,6 @@ const arrCurrencies = [
         ['CNY','USD'],
         ['IDR','USD'],
         ['INR','USD'],
-        ['AUD','USD'],
         ['BRL','USD'],
         ['JPY','USD'],
         ['SGD','USD'],
@@ -192,10 +192,45 @@ const arrCurrencies = [
         ['EUR','USD'],
         ['NZD','USD'],
         ['SGD','USD']
+    ],
+    ['ECB','cTocFrom|0|6|cFrom|cTo|rVal||rDate|various|',
+        ['CAD','USD'],
+        ['AUD','USD'],
+        ['CNY','USD'],
+        ['HKD','USD'],
+        ['IDR','USD'],
+        ['INR','USD'],
+        ['JPY','USD'],
+        ['KRW','USD'],
+        ['MYR','USD'],
+        ['NZD','USD'],
+        ['PHP','USD'],
+        ['SGD','USD'],
+        ['TWD','USD'],
+        ['THB','USD'],
+        ['VND','USD'],
+        ['CHF','USD'],
+        ['CZK','USD'],
+        ['DKK','USD'],
+        ['EUR','USD'],
+        ['GBP','USD'],
+        ['HUF','USD'],
+        ['NOK','USD'],
+        ['PLN','USD'],
+        ['RUB','USD'],
+        ['SEK','USD'],
+        ['ZAR','USD'],
+        ['ARS','USD'],
+        ['BRL','USD'],
+        ['CLP','USD'],
+        ['COP','USD'],
+        ['MXN','USD'],
+        ['PEN','USD']
     ]
 ]
 
 // Create array with more information
+// step 2 of 3 to add new currency file, define the output file name
 const arrExtraInfo = [
     ['ARSA', 'LOC_ARS_ASK.OUT'],
     ['ARSB', 'LOC_ARS_BID.OUT'],
@@ -219,7 +254,8 @@ const arrExtraInfo = [
     ['GLA', 'LOC_GLA_MID.OUT'],
     ['IPG', 'LOC_IPG_MID.OUT'],
     ['PSG', 'LOC_PSG_MID.OUT'],
-    ['SUP', 'LOC_SUP_MID.OUT']
+    ['SUP', 'LOC_SUP_MID.OUT'],
+    ['ECB', 'LOC_ECB_MID.OUT']
 ]
 
 // Creates elements based on the array
@@ -305,26 +341,13 @@ form.addEventListener('submit', (evt) => {
         textContent = textContent.replaceAll('rVal', parseFloat(divsInTable[1].querySelector('input').value).toFixed(6))
         textContent = textContent.replaceAll('rDate', dateToWrite)
     } else {
-        let fristAUD = false
         currRow.forEach((currElement, i) => {
             if (i > 1) {
                 //Skips lines with no values
                 let rateValue = divsInTable[i - 1].querySelector('input').value
                 
                 if (rateValue !== '') {
-                    
                     textContent += currRow[1]
-
-                    //Exception for GLA currecny fro VND and AUD
-                    if (rateFile === 'GLA' && (currElement[0] === 'VND' || currElement[0] === 'AUD') ){
-                        if((currElement[0] === 'AUD' && fristAUD === true) || currElement[0] === 'VND'){
-                            textContent = textContent.replaceAll('cTocFrom', currElement[0] + currElement[1])
-                        }
-                    }
-                    if (rateFile === 'GLA' &&  currElement[0] === 'AUD') {
-                        fristAUD = true
-                    }
-                                   
                     textContent = textContent.replaceAll('cFrom', currElement[0])
                     textContent = textContent.replaceAll('cTo', currElement[1])
                     textContent = textContent.replaceAll('rVal', parseFloat(rateValue).toFixed(6))
